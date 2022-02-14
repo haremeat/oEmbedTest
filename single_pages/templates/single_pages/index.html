@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>oEmbed Test</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static '/css/main.css' %}" media="screen">
+</head>
+<body>
+<div class="container">
+    <div class="search-container">
+        <h2>oEmbed Test</h2>
+        <form method="POST" action="/oembed/">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="URL"
+                               name="url" required/>
+                    </div>
+                    <div class="col-md-2 d-grid">
+                        <button type="submit" class="btn btn-primary ">OK</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% block main_area %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

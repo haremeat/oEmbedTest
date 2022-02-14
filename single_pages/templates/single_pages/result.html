@@ -1,0 +1,123 @@
+{% extends 'single_pages/index.html' %}
+
+{% block main_area %}
+{% if error %}
+<div class="card">
+    <div class="card-body text-center">
+        <p>{{ url }}</p>
+        <span class="fs-5">해당 URL을 읽어올 수 없습니다.</span>
+    </div>
+</div>
+{% else %}
+<table class="table table-striped table-bordered">
+    <tbody>
+    {% if title %}
+    <tr>
+        <th>title</th>
+        <td><span class="fw-bold">{{ title }}</span></td>
+    </tr>
+    {% endif %}
+    <tr>
+        <th>type</th>
+        <td>{{ type }}</td>
+    </tr>
+    <tr>
+        <th>version</th>
+        <td>{{ version }}</td>
+    </tr>
+    {% if author_name %}
+    <tr>
+        <th>author_name</th>
+        <td>{{ author_name }}</td>
+    </tr>
+    {% endif %}
+    {% if author_url %}
+    <tr>
+        <th>author_url</th>
+        <td><a href="{{ author_url }}">{{ author_url }}</a></td>
+    </tr>
+    {% endif %}
+    {% if is_plus %}
+    <tr>
+        <th>is_plus</th>
+        <td>{{ is_plus }}</td>
+    </tr>
+    {% endif %}
+    {% if html %}
+    <tr>
+        <th>html</th>
+        <td>
+            <p>{{ html }}</p>
+            {{ html | safe }}
+        </td>
+    </tr>
+    {% endif %}
+    {% if provider_name %}
+    <tr>
+        <th>provider_name</th>
+        <td>{{ provider_name }}</td>
+    </tr>
+    {% endif %}
+    {% if provider_url %}
+    <tr>
+        <th>provider_url</th>
+        <td><a href="{{ provider_url }}">{{ provider_url }}</a></td>
+    </tr>
+    {% endif %}
+    {% if cache_age %}
+    <tr>
+        <th>cache_age</th>
+        <td>{{ cache_age }}</td>
+    </tr>
+    {% endif %}
+    {% if thumbnail_url %}
+    <tr>
+        <th>thumbnail_url<br>({{ thumbnail_width }}x{{ thumbnail_height }})</th>
+        <td>
+            <a href="{{ thumbnail_url }}">{{ thumbnail_url }}</a><br>
+            <img src="{{ thumbnail_url }}" alt="">
+        </td>
+    </tr>
+    {% endif %}
+    {% if thumbnail_width %}
+    <tr>
+        <th>thumbnail_width</th>
+        <td>{{ thumbnail_width }}</td>
+    </tr>
+    {% endif %}
+    {% if thumbnail_height %}
+    <tr>
+        <th>thumbnail_height</th>
+        <td>{{ thumbnail_height }}</td>
+    </tr>
+    {% endif %}
+    {% if thumbnail_url_with_play_button %}
+    <tr>
+        <th>thumbnail_url_with_play_button</th>
+        <td><a href="{{ thumbnail_url_with_play_button }}">{{ thumbnail_url_with_play_button }}</a></td>
+    </tr>
+    {% endif %}
+
+    {% if upload_date %}
+    <tr>
+        <th>upload_date</th>
+        <td>{{ upload_date }}</td>
+    </tr>
+    {% endif %}
+
+    {% if video_id %}
+    <tr>
+        <th>video_id</th>
+        <td>{{ video_id }}</td>
+    </tr>
+    {% endif %}
+    {% if uri %}
+    <tr>
+        <th>uri</th>
+        <td>{{ uri }}</td>
+    </tr>
+    {% endif %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

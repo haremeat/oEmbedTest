@@ -1,0 +1,8 @@
+.search-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.search-container > h2 {
+    margin: 15px 0;
+}
